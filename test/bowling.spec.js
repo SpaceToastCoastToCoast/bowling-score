@@ -15,9 +15,15 @@ describe('bowling score calculator', function() {
     expect(bowling(args)).to.equal(30);
   });
 
-  it('should award bonus points for a spare', function() {
+  it('should award bonus points for a spare equal to the first ball of the next frame', function() {
     var args = [[3,7], [3,2], [0,0], [0,0], [0,0],
      [0,0], [0,0], [0,0], [0,0], [0,0]];
     expect(bowling(args)).to.equal(18);
+  });
+
+  it('should award bonus points for a strike equal to both balls of the next frame', function() {
+    var args = [[10], [2,3], [0,0], [0,0], [0,0],
+      [0,0], [0,0], [0,0], [0,0], [0,0]];
+    expect(bowling(args)).to.equal(20);
   });
 });
