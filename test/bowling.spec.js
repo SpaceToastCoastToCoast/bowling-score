@@ -31,5 +31,8 @@ describe('bowling score calculator', function() {
     var args = [[10], [3,7], [2,1], [0,0], [0,0],
       [0,0], [0,0], [0,0], [0,0], [0,0]];
     expect(bowling(args)).to.equal(35);
+    args = [[10], [3,7], [10], [0,0], [0,0],
+      [0,0], [0,0], [0,0], [0,0], [0,0]];
+    expect(bowling(args)).to.equal(50);
   });
 });
