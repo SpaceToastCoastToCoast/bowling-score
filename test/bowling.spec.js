@@ -44,4 +44,10 @@ describe('bowling score calculator', function() {
       [0,0], [0,0], [0,0], [0,0], [10, 5, 2]];
     expect(bowling(args)).to.equal(74);
   });
+
+  it('should score a perfect game (12 strikes) as 300', function() {
+    var args = [[10], [10], [10], [10], [10],
+      [10], [10], [10], [10], [10, 10, 10]];
+      expect(bowling(args)).to.equal(300);
+  });
 });
