@@ -7,7 +7,7 @@ module.exports = function(frames) {
     var frameTotal = 0;
     for(var f in frames[frame]) {
       if(spareBonus) {
-        frameTotal += frames[frame][0];
+        frameTotal += frames[frame][f];
         spareBonus = false;
       } else if (strikeBonus) {
         frameTotal += frames[frame][f];
@@ -15,13 +15,14 @@ module.exports = function(frames) {
        frameTotal += frames[frame][f];
     }
     strikeBonus = false;
-    if(frameTotal == 10) {
+    if(frameTotal >= 10) {
       if(frames[frame].length === 1) {
         strikeBonus = true;
       } else {
         spareBonus = true;
       }
     }
+    console.log('frame total,', frameTotal);
     score += frameTotal;
   }
 
