@@ -8,4 +8,10 @@ describe('bowling score calculator', function() {
     expect(bowling).to.be.a('function');
     expect(bowling()).to.be.a('number');
   });
+
+  it('should calculate the score over 10 frames of play', function() {
+    var args = [[1,2], [1,2], [1,2], [1,2], [1,2],
+      [1,2], [1,2], [1,2], [1,2], [1,2]];
+    expect(bowling(args)).to.equal(30);
+  });
 });
