@@ -3,6 +3,10 @@ module.exports = function(frames) {
   var spareBonus = false;
   var strikeBonus = false;
 
+  if(frames === undefined) {
+    return score;
+  }
+
   for(var frame in frames) {
     var frameTotal = 0;
     for(var f in frames[frame]) {
@@ -22,8 +26,16 @@ module.exports = function(frames) {
         spareBonus = true;
       }
     }
-    console.log('frame total,', frameTotal);
     score += frameTotal;
+  }
+  if(frames[9].length === 3) {
+    //if bonus balls were awarded
+    if(frames[9][0] === 10) {
+      score += frames[9][1];
+      score += frames[9][2];
+    } else {
+      score += frames[9][2];
+    }
   }
 
   return score;
