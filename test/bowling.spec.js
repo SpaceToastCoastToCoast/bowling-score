@@ -35,4 +35,13 @@ describe('bowling score calculator', function() {
       [0,0], [0,0], [0,0], [0,0], [0,0]];
     expect(bowling(args)).to.equal(50);
   });
+
+  it('should award bonus balls if the last frame is a spare or strike', function() {
+    var args = [[10], [3,7], [10], [0,0], [0,0],
+      [0,0], [0,0], [0,0], [0,0], [3, 7, 2]];
+    expect(bowling(args)).to.equal(64);
+    args = [[10], [3,7], [10], [0,0], [0,0],
+      [0,0], [0,0], [0,0], [0,0], [10, 5, 2]];
+    expect(bowling(args)).to.equal(74);
+  });
 });
