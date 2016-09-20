@@ -18,6 +18,12 @@ module.exports = function(frames) {
       }
        frameTotal += frames[frame][f];
     }
+    var nextFrame = parseInt(frame) + 1;
+    if(frames[frame].length === 1 && frames[nextFrame] !== undefined) {
+      if(frames[nextFrame].length === 1 && nextFrame % 2 !== 0) {
+        frameTotal += 10;
+      }
+    }
     strikeBonus = false;
     if(frameTotal >= 10) {
       if(frames[frame].length === 1) {
@@ -32,6 +38,9 @@ module.exports = function(frames) {
     //if bonus balls were awarded
     if(frames[9][0] === 10) {
       score += frames[9][1];
+      if(frames[9][1] === 10) {
+        score += frames[9][2];
+      }
       score += frames[9][2];
     } else {
       score += frames[9][2];
