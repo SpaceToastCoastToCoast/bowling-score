@@ -14,4 +14,10 @@ describe('bowling score calculator', function() {
       [1,2], [1,2], [1,2], [1,2], [1,2]];
     expect(bowling(args)).to.equal(30);
   });
+
+  it('should award bonus points for a spare', function() {
+    var args = [[3,7], [3,2], [0,0], [0,0], [0,0],
+     [0,0], [0,0], [0,0], [0,0], [0,0]];
+    expect(bowling(args)).to.equal(18);
+  });
 });
