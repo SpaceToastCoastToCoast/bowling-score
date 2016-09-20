@@ -26,4 +26,10 @@ describe('bowling score calculator', function() {
       [0,0], [0,0], [0,0], [0,0], [0,0]];
     expect(bowling(args)).to.equal(20);
   });
+
+  it('should properly award points for a combination of spares and strikes', function() {
+    var args = [[10], [3,7], [2,1], [0,0], [0,0],
+      [0,0], [0,0], [0,0], [0,0], [0,0]];
+    expect(bowling(args)).to.equal(35);
+  });
 });
